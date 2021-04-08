@@ -38,6 +38,7 @@ public class CropActivity extends AppCompatActivity {
 
         setupToolbar();
         setupView();
+
     }
 
     @Override
@@ -91,7 +92,7 @@ public class CropActivity extends AppCompatActivity {
     }
 
     public Uri createSaveUri() {//创建裁切完文件保存目录，默认保存在/mnt/sdcard/Android/data/<包名>/cache
-        return Uri.fromFile(new File(getExternalCacheDir().getAbsolutePath(), "cropped_" + System.currentTimeMillis() + ".jpg"));
+        return Uri.fromFile(new File(getExternalCacheDir().getAbsolutePath(), "cropped_123"  + ".jpg"));
     }
 
     // Callbacks ///////////////////////////////////////////////////////////////////////////////////

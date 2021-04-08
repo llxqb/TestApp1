@@ -14,9 +14,10 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
+import com.jeanboy.cropview.cropper.CropperImage;
+import com.jeanboy.cropview.utils.Utils;
 import com.s20cxq.testapp.R;
 
-import camerademo.utils.Utils;
 
 /**
  * @Class: ShowCropperedActivity

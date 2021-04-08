@@ -66,23 +66,9 @@ public class CropperManager {
                             putExtra(MediaStore.EXTRA_OUTPUT, cameraCacheUri),
                     CropperParams.REQUEST_PICK_CAMERA);
         } else {
-//            Log.e("----", "cameraCacheUri=" + cameraCacheUri.getPath());
-//            ContentValues contentValues = new ContentValues(1);
-//            contentValues.put(MediaStore.Images.Media.DATA, cameraCacheUri.getPath());
-//            contentValues.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
-//            Uri uri = cropperHandler.getActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
-
             //采用下面方法
             Uri uri = FileProvider.getUriForFile(cropperHandler.getActivity(), "com.s20cxq.testapp"+".fileprovider", pictureFile);
             Log.e("----","uri="+uri.toString());
-
-//            try {
-//                iv_cropped.setImageBitmap(MediaStore.Images.Media.getBitmap(cropperHandler.getActivity().getContentResolver(), uri));
-////            mCropImageView.rotateImage(90);
-//            } catch (IOException e) {
-////                Log.e(TAG, e.getMessage());
-//            }
-
             cropperHandler.getActivity().startActivityForResult(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).
                     putExtra(MediaStore.EXTRA_OUTPUT, uri), CropperParams.REQUEST_PICK_CAMERA);
 
@@ -108,7 +94,7 @@ public class CropperManager {
         } else if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case CropperParams.REQUEST_PICK_CAMERA://相机拍完照回调处理，去裁切
-                    notifyImageToGallery(cropperHandler.getActivity(), cameraCacheUri);
+//                    notifyImageToGallery(cropperHandler.getActivity(), cameraCacheUri);
                     cropperHandler.getActivity().startActivityForResult(new Intent(cropperHandler.getActivity(), CropActivity.class)
                                     .putExtra(CropperParams.PICK_URI, cameraCacheUri)
                                     .putExtra(CropperParams.ASPECT_X, cropperHandler.getParams().aspectX)
@@ -160,7 +146,7 @@ public class CropperManager {
     }
 
     private String getCameraFileName() {
-        return "cropper_" + System.currentTimeMillis() + ".jpg";
+        return "cropper_123" + ".jpg";
     }
 
     /**
